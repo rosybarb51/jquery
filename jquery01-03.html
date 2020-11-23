@@ -36,7 +36,28 @@
                 $("#div01 > .red").fadeIn();
                 $("#div01 > .green").fadeIn(slow);
                 $("#div01 > .blue").fadeIn(3000);
-            })
+            });
+
+            $("#btnFadeOut").on("click", function() {
+                $("#div01 > .red").fadeOut();
+                $("#div01 > .green").fadeOut(slow);
+                $("#div01 > .blue").fadeOut(3000);
+            }); 
+            
+            $("#btnFadeToggle").on("click", function() {
+                $("#div01 > .red").fadeToggle();
+                $("#div01 > .green").fadeToggle(slow);
+                $("#div01 > .blue").fadeToggle(3000);
+            }); 
+
+            $("#btnFadeTo").on("click", function() {
+                $("#div02 > .red").fadeTo("fast", 0.2);
+                $("#div02 > .green").fadeTo(2000, 0.5);
+                $("#div02 > .blue").fadeTo("slow", 0.8);
+
+            });
+
+
         });
     </script>
 
@@ -46,6 +67,13 @@
             height: 100px;
             border: 1px solid black;
         }
+
+        .red {background-color: red;}
+        .green {background-color: green;}
+        .blue {background-color: blue;}
+
+        #div01 > .box { display: none; }
+
     </style>
 </head>
 <body>
@@ -67,12 +95,26 @@
 
     <br><hr><br>
 
-    <h3>fadeIn</h3>
+    <h3>fade In</h3>
     <div id="div01">
-        <button id="btnFadeIn">Fade In 효과</button>
+        <button id="btnFadeIn">FadeIn 효과</button>
+        <button id="btnFadeOut">FadeOut 효과</button>
+        <button id="btnFadeToggle">FadeToggle 효과</button>
         <div class="box red"></div>
         <div class="box green"></div>
         <div class="box blue"></div>
     </div>
+
+    <br>
+
+    <h4>FadeTo</h4>
+    <div id="div02">
+        <button id="btnFadeTo">FadeTo 효과</button>
+        <div class="box red"></div>
+        <div class="box green"></div>
+        <div class="box blue"></div>
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>

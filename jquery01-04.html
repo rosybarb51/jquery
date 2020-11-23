@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 1-4</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./jquery.color-2.1.2.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#div01 > .flip").on("click", function() {
+                $("#div01 > .panel").slideDown("slow");
+            });
+            $("#div02 > .flip").on("click", function() {
+                $("#div02 > .panel").slideUp("slow");
+            });
+            $("#div03 > .flip").on("click", function() {
+                $("#div03 > .panel").slideToggle("slow");
+            });
+
+            // animate 함수
+            $("#div04 > .ani1").on("click", function() {
+                $("#div04 > .ani1").animate({left : "250px"});
+            });
+
+            $("#div04 > .ani2").on("click", function() {
+                $("#div04 > .ani2").animate(
+                    {
+                        left : "250px",
+                        opacity : "0.5",
+                        height : "150px",
+                        width : "150px"
+                    });
+            });
+
+            $("#div04 > .ani3").on("click", function() {
+                $("#div04 > .ani3").animate({
+                    left: "250px",
+                    height: "+=100px",
+                    width: "+=100px"
+                });
+            });
+
+            $("#div04 > .ani4").on("click", function() {
+                $("#div04 > .ani4").animate({
+                    height : "300px",
+                    opacity : "0.4"
+                }, "slow");
+                $("#div04 > .ani4").animate({
+                    width : "300px",
+                    height : "300px",
+                    opacity : "0.8"
+                }, "slow");
+                $("#div04 > .ani4").animate({
+                    height : "100px",
+                    opacity : "0.4"
+                }, "slow");
+                $("#div04 > .ani4").animate({
+                    height : "100px",
+                    opacity : "0.8",
+                    width : "100px"
+                }, "slow");
+            });
+
+            $("#div04 > .ani5").on("click", function() {
+                $("#div04 > .ani5").animate({
+                    left: "300px"
+                });
+                
+                $("#ppp").animate({
+                    fontSize : "8px",
+                    color : "red"
+                });
+                $("#ppp").animate({
+                    fontSize : "24px",
+                    color : "blue"
+                });
+                
+            });
+        });
+    </script>
+
+    <style>
+        
+        .flip, .panel {
+            padding: 5px;
+            text-align: center;
+            background-color: wheat;
+            border: 1px solid thistle;
+        }
+        .panel { padding: 50px; }
+
+        #div01 > .panel { display: none; }
+
+        #div04 {
+            position: relative;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+        }
+
+        #div04 > .ani1 {
+            position: absolute;
+            background-color: darksalmon;
+        }
+        
+        #div04 > .ani2 {
+            position: absolute;
+            background-color: rgb(122, 179, 233);
+            top: 150px;
+            left : 0px;
+        }
+
+        #div04 > .ani3 {
+            position: absolute;
+            background-color: darksalmon;
+            left: 0px;
+            top: 258px;
+        }
+
+        #div04 > .ani4 {
+            position: absolute;
+            background-color: darkseagreen;
+            left: 0px;
+            top: 370px;
+        }
+
+        #div04 > .ani5 {
+            position: absolute;
+            background-color: khaki;
+            width: 200px;
+            height: 200px;
+            left: 0px;
+            top : 480px;
+            text-align: center;  
+        }
+        #ppp { font-size: 16px;}
+    </style>
+</head>
+<body>
+    <div id="div01">
+        <h3>slide down</h3>
+        <div class="flip">클릭 시 아래의 div 영역 표시</div>
+        <div class="panel">클릭 시 표시되는 div 영역</div>
+    </div>
+
+    <br><hr><br>
+
+    <div id="div02">
+        <h3>slide up</h3>
+        <div class="flip">클릭 시 아래의 div 영역 숨김</div>
+        <div class="panel">클릭 시 숨겨지는 div 영역</div>
+    </div>
+    
+    <div id="div03">
+        <h3>slide toggle</h3>
+        <div class="flip">클릭 시 아래의 div 영역 표시/숨김</div>
+        <div class="panel">클릭 시 숨김/표시되는 div 영역</div>
+    </div>
+
+    <br><hr><br>
+
+    <div id="div04">
+        <h3>animate</h3>
+
+        <div class="box ani1"></div>
+        <br>
+        <div class="box ani2">클릭 시 이동하면서 커지고 투명해짐</div>
+        <br>
+        <div class="box ani3">클릭 시 상대값을 이용해서 크기가 커짐</div>
+        <div class="box ani4">클릭 시 애니메이션 연계동작</div>
+        <div class="box ani5"><p id="ppp">Hello</p></div>
+
+
+        <!-- 문제 1) animate 함수를 사용하여 div 태그의 위치를 왼쪽에서 오른쪽으로 300px 이동 시키고, 이동 후 div 태그 내의 p 태그의 글자가 8px 로 작아졌다가 다시 24px로 커지는 애니메이션을 완성하세요. -->
+        <!-- 조건) div 태그의 크기 width: 200px, height: 200px -->
+        <!-- p 태그의 글자 : Hello (시작 시 글자 크기 : 16px, 작아졌을 경우 : 8px, 커졌을 경우 : 24px)-->
+        <!-- 글자색 : 검정색, font-size :animate에서 사용 시 fontSize로 입력해야함 -->
+
+
+
+
+
+    </div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
