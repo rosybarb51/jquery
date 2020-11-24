@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 2-4</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./jquery.color-2.1.2.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+
+        
+            // remove 사용
+            $("#btnRemove").on("click", function() {
+                $("#divRemove").remove();
+            });
+
+            // empty 사용
+            $("#btnEmpty").on("click", function() {
+                $("#divRemove").empty();
+            });
+            
+            // 필터링 사용 - 원하는 요소만 삭제
+            $("#btnRemoveFilter").on("click", function() {
+                $("#div02 > p").remove(".removeThis");
+            });
+        });
+    </script>
+
+    <style>
+        .removeThis { color: tomato; }
+        #divRemove {
+            height: 200px;
+            width: 300px;
+            border: 1px solid black;
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="div01">
+        <h3>remove 사용</h3>
+
+        <button id="btnRemove">클릭 시 아래의 div 삭제(remove)</button>
+        <button id="btnEmpty">클릭 시 아래의 div 자손태그 삭제(empty)</button>
+        <div id="divRemove">
+            remove 함수를 사용하여 삭제될 텍스트
+            <p>remove 함수 사용하여 삭제될 p태그</p>
+            <div style="height: 100px; width: 100px; background-color: darksalmon;">
+               <p>remove 함수를 사용하여 삭제될 div 태그</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="div02">
+        <h3>필터링을 통한 삭제</h3>
+
+        <p>삭제되지 않을 p 태그</p>
+        <p class="removeThis">필터링을 통해 삭제될 p 태그</p>
+        <p class="removeThis">필터링을 통해 삭제될 p 태그</p>
+
+        <button id="btnRemoveFilter">클릭 시 지정한 요소만 삭제</button>
+    </div>
+</body>
+</html>
