@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 2-1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./jquery.color-2.1.2.js"></script>
+
+    <script>
+        // 콜백함수 사용
+        $(document).ready(function() {
+            $("#btnCall01").on("click", function() {
+                // 콜백함수인 fucntion() 때문에 버튼 클릭하면 hide 동작된 후에 alert 실행된다. 
+                $("#pCall01").hide("slow", function() {
+                    alert("p 태그 숨겨짐 - 콜백함수 사용");
+                });
+            });
+            // 콜백함수 미사용
+            $("#btnCall02").on("click", function() {
+                // 콜백함수를 안 넣어줘서 버튼 클릭하면 alert 실행된 후에 hide 동작된다. (콘솔로 확인하면 거의 동시에 일어남)
+                $("#pCall02").hide("slow");
+                alert("p 태그 숨겨짐 - 콜백함수 미사용");
+            });
+
+            $("#btnCall03").on("click", function() {
+                console.log("버튼3 :  1");
+                console.log("버튼3 :  2");
+                console.log("버튼3 :  3");
+                console.log("-------------");
+            });
+            
+            $("#btnCall04").on("click", function() {
+                console.log("버튼4 : 1");
+
+                // setTimeout : 타임아웃 1초 = 1000
+                // 타임아웃을 콜백함수와 함께 써서 2000 (2초) 후에 콜백함수 function 안의 것인 2번을 실행함.
+                // 자바스크립트라서 가능. (동기식 방식)
+                // 만약 비동기식 방식인 자바나 다른 언어였으면, 이 경우 2 실행하고 2초 후에 3 실행함. 
+                setTimeout(function() {
+                    console.log("버튼4 : 2");
+                }, 2000);
+
+                console.log("버튼4 : 3");
+            });
+
+        });
+    </script>    
+</head>
+<body>
+    <h3>콜백 함수 사용</h3>
+    <button id="btnCall01">Hide</button>
+    <p id="pCall01">버튼 클릭 시 숨겨질 p 태그</p>
+
+    <h3>콜백 함수 미사용</h3>
+    <button id="btnCall02">hide</button>
+    <p id="pCall02">버튼 클릭 시 숨겨질 p 태그</p>
+
+    <br><hr><br>
+
+    <button id="btnCall03">클릭 시 콘솔창에 출력</button>
+    <button id="btnCall04">클릭 시 콘솔창에 출력 (setTimeout) </button>
+
+</body>
+</html>
