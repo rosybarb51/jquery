@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 2-2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./jquery.color-2.1.2.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("#btnText").on("click", function() {
+                var txt = $("#p01").text();
+                alert("text() 사용 시 : " + txt); 
+            });
+            $("#btnHtml").on("click", function() {
+                var txt = $("#p01").html();
+                alert("html() 사용 시 : " + txt);
+            });
+
+
+            // text(), html() 을 이용하여 데이터 입력
+
+            $("#btnTextSet").on("click", function() {
+                $("#p02").text("<b>text()로 변경한 p태그</b>");
+            });
+
+            $("#btnHtmlSet").on("click", function() {
+                $("#p03").html("<b>html()로 변경한 p태그</b>");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="div01">
+        <h3>text(), html()</h3>
+        <!-- text는 글자만 가져오고, html은 태그까지 다 출력함 -->
+        <p id="p01">text()와 <b>html()의</b> 차이점</p>
+
+        <button id="btnText" type="button">text() 사용시</button>
+        <button id="btnHtml" type="button">html() 사용시</button>
+    </div>
+
+    <br><hr><br>
+
+    <div id="div02">
+        <h3>text, html 을 이용하여 내용 입력</h3>
+
+        <p id="p02">Set Text 버튼 클릭 시 변경될 p태그</p>
+        <p id="p03">Set Html 버튼 클릭 시 변경될 p태그</p>
+        <label for="textBox01">input Text : </label>
+        <input type="text" id="textBox01" placeholder="글자를 입력하세요" value="Hello world :)">
+
+        <button id="btnTextSet">Set Text</button>
+        <button id="btnHtmlSet">Set Html</button>
+
+    </div>
+</body>
+</html>
