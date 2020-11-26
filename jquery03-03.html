@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 3-3</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./jquery.color-2.1.2.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // siblings()를 이용해서 지정한 태그 h2의 '모든 형제' 태그를 선택함. 
+            // '자신은 빼고' 선택함. 
+            $("#div01 h2").siblings().css({
+                "color": "darksalmon",
+                "border": "2px solid darksalmon"
+            });
+
+            //siblings("필터") 사용해서 지정한 태그 h2의 형제 중에서 p 태그만 선택하기. 
+            // 만약에 p 태그 중에서 특정 클래스를 선택하고 싶으면 필터에 
+            // p.특정클래스명 적어주면 된다. 
+            $("#div02 h2").siblings("p").css({
+                "color": "darksalmon",
+                "border": "2px solid darksalmon"
+            });
+            
+            // next() 이용해서 내가 지정한 태그 h2 바로 다음 형제 태그인 h3 태그를 선택하기.
+            $("#div03 h2").next().css({
+                "color": "darksalmon",
+                "border": "2px solid darksalmon"
+            });
+            
+            // nextAll() 이용해서 내가 지정한 태그 h2 바로 다음부터 끝까지의 형제 태그 선택하기.
+            $("#div04 h2").nextAll().css({
+                "color": "darksalmon",
+                "border": "2px solid darksalmon"
+            });
+
+            // nextUntil() 사용해서 지정한 태그인 h2와 필터로 지정한 형제 태그인 h6 태그 사이의 모든 형제 태그를 선택.
+            $("#div05 h2").nextUntil("h6").css({
+                "color": "darksalmon",
+                "border": "2px solid darksalmon"
+            });
+        });
+    </script>
+
+    <style>
+        .siblings * {
+            display: block;
+            border: 2px solid lightgray;
+            color: lightgray;
+            padding: 5px;
+            margin: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div01">
+        <h3>siblings() 사용</h3>
+        <div class="siblings">
+            <div>부모 태그 div
+                <p>prev 2 번째 형제 태그 p</p>
+                <span>prev 형제 태그 span</span>
+                <h2>지정한 태그 h2</h2>
+                <h3>next 형제 태그 h3</h3>
+                <p>next 2 번째 형제 태그 p</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="div02">
+        <h3>siblings("필터") 사용</h3>
+        <div class="siblings">
+            <div>부모 태그 div
+                <p>prev 2 번째 형제 태그 p</p>
+                <span>prev 형제 태그 span</span>
+                <h2>지정한 태그 h2</h2>
+                <h3>next 형제 태그 h3</h3>
+                <p>next 2 번째 형제 태그 p</p>
+            </div>
+        </div>
+    </div>
+
+    <br><br><hr><br><br>
+
+    <div id="div03">
+        <h3>next() 사용</h3>
+            <div class="siblings">
+                <div>부모 태그 div
+                    <p>prev 2 번째 형제 태그 p</p>
+                    <span>prev 형제 태그 span</span>
+                    <h2>지정한 태그 h2</h2>
+                    <h3>next 형제 태그 h3</h3>
+                    <p>next 2 번째 형제 태그 p</p>
+                </div>
+            </div>
+    </div>
+    
+    <div id="div04">
+        <h3>nextAll() 사용</h3>
+            <div class="siblings">
+                <div>부모 태그 div
+                    <p>prev 2 번째 형제 태그 p</p>
+                    <span>prev 형제 태그 span</span>
+                    <h2>지정한 태그 h2</h2>
+                    <h3>next 형제 태그 h3</h3>
+                    <p>next 2 번째 형제 태그 p</p>
+                </div>
+            </div>
+    </div>
+
+    <br><br><hr><br><br>
+
+    <div id="div05">
+        <h3>nextUntil() 사용</h3>
+        <div class="siblings">
+            <p>prev 2 번 형제 태그 p</p>
+            <span>prev 1 번 형제 태그 span</span>
+            <h2>지정한 태그 h2</h2>
+            <h3>next 1 번 형제 태그 h3</h3>
+            <h4>next 2 번 형제 태그 h4</h4>
+            <h5>next 3 번 형제 태그 h5</h5>
+            <h6>next 4 번 형제 태그 h6</h6>
+            <p>next 5 번 형제 태그 ㅔ</p>
+        </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
